@@ -1,0 +1,45 @@
+body {
+    background-color: #eaf7f5;
+    font-family: Arial, sans-serif;
+  }
+  .card-container {
+    background: #d6f7e6;
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .header-logo img {
+    max-width: 100%;
+  }
+  .form-control {
+    background-color: #dafaf2;
+    border: 1px solid #ccc;
+  }
+  .quantity-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: #dafaf2;
+    border-radius: 5px;
+  }
+  .calendar {
+    text-align: center;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+  }
+  .btn-custom {
+    background-color: #57d9a4;
+    color: white;
+    font-weight: bold;
+  }

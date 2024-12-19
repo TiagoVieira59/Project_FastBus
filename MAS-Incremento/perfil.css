@@ -1,0 +1,125 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f8f5; /* Cor de fundo verde claro */
+}
+
+.container {
+    max-width: 400px;
+    margin: 30px auto;
+    background-color: #e0f8f5; /* Fundo do container */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Cabeçalho da página */
+.header-image {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
+/* Inputs e Labels */
+.label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Botão */
+.button {
+    background-color: #34d399;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #2ebf91;
+}
+
+/* Quantidade */
+.quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #34d399;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: #2ebf91;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Navbar fixa ao comprido */
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Garante que ocupa toda a largura */
+    background-color: #e0f8f5; /* Fundo da navbar */
+    border-top: 1px solid #d4f0eb;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around; /* Distribui igualmente os ícones */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Estilo dos links */
+.nav-link {
+    color: #34d399; /* Cor do ícone e texto */
+    text-decoration: none;
+    font-size: 12px; /* Tamanho do texto */
+    text-align: center; /* Centraliza o texto abaixo do ícone */
+}
+
+.nav-link i {
+    display: block;
+    font-size: 20px; /* Tamanho dos ícones */
+    margin-bottom: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.nav-link:hover {
+    color: #2ebf91; /* Cor ao passar o mouse */
+}
+

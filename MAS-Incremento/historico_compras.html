@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Bilhetes - FastBus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #00796b;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .history-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket-item {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .ticket-item h5 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #00796b;
+        }
+
+        .no-history {
+            text-align: center;
+            color: #999;
+            margin-top: 2rem;
+        }
+
+        .clear-history {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .clear-history:hover {
+            background-color: #c82333;
+        }
+        .bottom-nav {
+            background-color: #e8f5f9 !important;
+            border-top: 1px solid #cce7e8;
+        }
+
+        .nav-link {
+            color: #00796b;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #004d40;
+            transform: scale(1.1);
+        }   
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Histórico de Bilhetes</h1>
+    </div>
+
+    <!-- Histórico -->
+    <div class="history-container">
+        <h2>Bilhetes de Ida</h2>
+        <div id="idaTickets">
+            <p>Nenhum bilhete de ida registrado.</p>
+        </div>
+    
+        <h2>Bilhetes de Volta</h2>
+        <div id="voltaTickets">
+            <p>Nenhum bilhete de volta registrado.</p>
+        </div>
+    </div>
+    
+    <div>
+        <button class="clear-history" onclick="clearHistory()">Limpar Histórico</button>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="navbar fixed-bottom navbar-light bg-light bottom-nav">
+        <div class="container d-flex justify-content-around">
+            <a href="perfil.html" class="nav-link text-center">
+                <i class="bi bi-person"></i>
+                <span>Perfil</span>
+            </a>
+            <a href="compra_bilhetes.html" class="nav-link text-center">
+                <i class="bi bi-globe"></i>
+                <span>Bilhetes</span>
+            </a>
+            <a href="carrinho.html" class="nav-link text-center">
+                <i class="bi bi-cart"></i>
+                <span>Carrinho</span>
+            </a>
+            <a href="historico_compras.html" class="nav-link text-center">
+                <i class="bi bi-question-circle"></i>
+                <span>Histórico</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Scripts -->
+    <script>
+   document.addEventListener('DOMContentLoaded', loadHistory);
+
+function loadHistory() {
+    const history = JSON.parse(localStorage.getItem('history')) || [];
+    const idaContainer = document.getElementById('idaTickets');
+    const voltaContainer = document.getElementById('voltaTickets');
+
+    if (!idaContainer || !voltaContainer) {
+        console.error('Contêineres para os bilhetes não encontrados no HTML.');
+        return;
+    }
+
+    // Limpa os contêineres
+    idaContainer.innerHTML = '';
+    voltaContainer.innerHTML = '';
+
+    if (history.length === 0) {
+        idaContainer.innerHTML = '<p>Nenhum bilhete de ida registrado.</p>';
+        voltaContainer.innerHTML = '<p>Nenhum bilhete de volta registrado.</p>';
+        return;
+    }
+
+    history.forEach(ticket => {
+        const ticketDiv = document.createElement('div');
+        ticketDiv.classList.add('ticket-item');
+        ticketDiv.innerHTML = `
+            <h5>${ticket.from} → ${ticket.to}</h5>
+            <p>Data: ${ticket.date}</p>
+            <p>Partida: ${ticket.departure} | Chegada: ${ticket.arrival}</p>
+            <p>Preço: ${ticket.price.toFixed(2)}€</p>
+        `;
+
+        if (ticket.type === 'Ida') {
+            idaContainer.appendChild(ticketDiv);
+        } else if (ticket.type === 'Volta') {
+            voltaContainer.appendChild(ticketDiv);
+        }
+    });
+}
+
+
+
+
+        function clearHistory() {
+            if (confirm('Tem certeza de que deseja limpar o histórico de bilhetes?')) {
+                localStorage.removeItem('history');
+                loadHistory();
+            }
+        }
+    </script>
+</body>
+</html>

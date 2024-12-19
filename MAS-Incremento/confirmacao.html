@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra - FastBus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #00796b;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .confirmation-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .confirmation-message {
+            font-size: 1.5rem;
+            color: #00796b;
+            margin-bottom: 1rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .footer-spacing {
+            padding-bottom: 80px;
+        }
+        .bottom-nav {
+            background-color: #e8f5f9 !important;
+            border-top: 1px solid #cce7e8;
+        }
+
+        .nav-link {
+            color: #00796b;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #004d40;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>FastBus</h1>
+        <p>Confirmação de Compra</p>
+    </div>
+
+    <!-- Confirmação -->
+    <div class="confirmation-container">
+        <i class="bi bi-check-circle success-icon"></i>
+        <p class="confirmation-message">Compra efetuada com sucesso!</p>
+        <p>Os bilhetes foram registrados no histórico.</p>
+    </div>
+    
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="navbar fixed-bottom navbar-light bg-light bottom-nav">
+        <div class="container d-flex justify-content-around">
+            <a href="perfil.html" class="nav-link text-center">
+                <i class="bi bi-person"></i>
+                <span>Perfil</span>
+            </a>
+            <a href="compra_bilhetes.html" class="nav-link text-center">
+                <i class="bi bi-globe"></i>
+                <span>Bilhetes</span>
+            </a>
+            <a href="carrinho.html" class="nav-link text-center">
+                <i class="bi bi-cart"></i>
+                <span>Carrinho</span>
+            </a>
+            <a href="historico_compras.html" class="nav-link text-center">
+                <i class="bi bi-question-circle"></i>
+                <span>Histórico</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>
